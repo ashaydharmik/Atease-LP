@@ -12,40 +12,41 @@
 
 <!-- banner -->
 <section class="banner-container">
-    <div class="banner-content-container">
-        <div class="row">
-            <div class="left-content">
-                <div class="heading">
-                    <h1>At Ease is proud to be of service to you and those who have served.</h1>
-                    <h2>At Ease Vets has got your 6!</h2>
-                </div>
-                <div class="desc">
-                    <p>Get the app</p>
-                    <p> <img src="/assests/appstore.png" alt=""/></p>
-                    <p> <img src="/assests/googleplay.png" alt=""/></p>
-                </div>
-            </div>
-            <div class="right-content">
-                <div class="image-container">
-                    <img src="/assests/Ellipse.png" alt="Ellipse" id="ellipse"/>
-                    <img src="/assests/mobile.png" alt="Mobile" id="mobile"/>
-                </div>
-            </div>
-        </div>
-        <div class="dots">
-            <span></span>
-            <span></span>
-            <span id="middle-dot"></span>
-            <span></span>
-            <span></span>
-        </div>
+  <div class="banner-content-container">
+      <div class="row">
+          <div class="left-content">
+              <div class="heading">
+                  <h1>At Ease is proud to be of service to you and those who have served.</h1>
+                  <h2>At Ease Vets has got your 6!</h2>
+              </div>
+              <div class="desc">
+                  <p>Get the app</p>
+                  <p><img src="/assests/appstore.png" alt=""/></p>
+                  <p><img src="/assests/googleplay.png" alt=""/></p>
+              </div>
+          </div>
+          <div class="right-content">
+            <img src="/assests/Ellipse.png" alt="Ellipse" id="ellipse"/>
+              <div class="image-container">
+                  <!-- Add multiple images -->
+                  <img src="/assests/mobile.png" alt="Mobile" class="mobile-image active"/>
+                  <img src="/assests/mobile2.png" alt="Mobile" class="mobile-image"/>
+                  <img src="/assests/mobile3.png" alt="Mobile" class="mobile-image"/>
+                  <img src="/assests/mobile4.png" alt="Mobile" class="mobile-image"/>
+              </div>
+          </div>
       </div>
+      <div class="dots">
+          <!-- Dynamic dots will be generated here -->
+      </div>
+  </div>
 </section>
+
 <section class="menu">
     <nav class="navbar navbar-expand-lg bg-body-tertiary custom-navbar">
         <div class="container-fluid">
           <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/index.html">
               <img src="/assests/logo.png" alt="logo" width="100" height="50">
             </a>
           </div>
@@ -58,13 +59,13 @@
                 <a class="nav-link" aria-current="page" href="/index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
+                <a class="nav-link" href="#About">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact Us</a>
+                <a class="nav-link" href="#Contact">Contact Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Donation</a>
+                <a class="nav-link" href="#Donation">Donation</a>
               </li>
               
             </ul>
@@ -198,7 +199,7 @@
 
 
 <!-- who we are -->
- <section class="who-we-are-section">
+ <section class="who-we-are-section" id="About">
   <div class="container">
     <div class="image-container">
       <img class="bg-image" src="/assests/whoweare.png" alt="Background Image" />
@@ -263,7 +264,7 @@
 
 <!-- Donation -->
 
-<section class="donation-container">
+<section class="donation-container" id="Donation">
   <div class="donate">
     <h2>Make a donation.</h2>
     <p>Your donation will go towards our cause.</p>
@@ -272,7 +273,7 @@
 </section>
 
   <!-- contact -->
-<section class="contact-container">
+<section class="contact-container" id="Contact">
   <h1>Contact Us</h1>
   <div class="contact-row">
     <div class="left-contact">
@@ -339,7 +340,8 @@
   <div class="footer-row">
     <div class="foot-box foot-box1">
       <div class="wrap">
-        <img src="/assests/logo - Copy.png"/>
+        <a href="/index.html"><img src="/assests/logo - Copy.png"/> </a>
+        
         <span>@ Ease Vet </span>
 
       </div>
@@ -347,11 +349,11 @@
     </div>
     <div class="foot-box">
       <ul>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">donate Now</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms & Condition</a></li>
+        <li><a href="#About">About Us</a></li>
+        <li><a href="#Contact">Contact Us</a></li>
+        <li><a href="#Donation">Donate Now</a></li>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+        <li><a href="/terms.html">Terms & Condition</a></li>
       </ul>
     </div>
     <div class="foot-box foot-box3">
