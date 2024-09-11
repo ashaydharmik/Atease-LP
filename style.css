@@ -3,30 +3,39 @@ padding: 0;
 margin: 0;
 }
 /* banner */
-.banner-container{
-    /* z-index: -1; */
-    background-image: url("/assests/banner.png");
-    width: 100%;
-    /* height: 640px; */
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    /* margin-bottom: 200px; */
-  
+.banner-container {
+  position: relative; /* This is necessary for absolute positioning of the overlay */
+  background-image: 
+      /* Updated to flip darkness direction to the bottom */
+      linear-gradient(284.31deg, rgba(0, 0, 0, 0) -2%, rgba(0, 0, 0, 0) 17.59%, rgba(0, 0, 0, 0.198685) 30.47%, rgba(0, 0, 0, 0.4) 77.04%, rgba(0, 0, 0, 0.415841) 43.81%, rgba(0, 0, 0, 0.433006) 111.98%, #000000 215%), 
+      /* Updated to flip direction from left-bottom to left-top */
+      linear-gradient(90deg, rgba(56, 35, 1, 0.11) 0%, rgba(56, 35, 1, 0.11) 70%, rgba(56, 35, 1, 0.5) 100.82%),
+      url("/assests/banner.png");
+  width: 100%;
+  height: 100vh;
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  overflow: hidden; /* Ensure no overflow issues */
 }
+
 .banner-container::before {
-    content: ''; 
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-image: url("/assets/overlay.png"); 
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    opacity: 0.5; 
-    /* z-index: 1;  */
+  content: ''; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Use 100% to cover the container height */
+  background-image: url("/assests/overlay.png");  /* Double-check the path */
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  opacity: 0.5; /* Adjust opacity as needed */
+  z-index: 1; /* Ensure it's on top of the background image */
+  pointer-events: none; /* Allows clicks to pass through if needed */
 }
+
+
 .menu{
     display: flex;
     justify-content: center;
@@ -45,9 +54,10 @@ margin: 0;
   }
   .bg-body-tertiary{
     background: #FFFFFF14 !important;
-    /* background: none !important; */
   }
-
+  /* .menu-expanded .bg-body-tertiary {
+    background: #FFFFFF14 !important;
+} */
 
 .navbar-collapse {
     flex-grow: 0.8; 
@@ -86,15 +96,24 @@ margin: 0;
 .banner-content-container .row{
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
     width: 90%;
     margin: auto;
-    padding: 126px 20px 0 20px;
+    padding: 140px 20px 0 20px;
 }
 .left-content{
-    width: 55%;
+    width: 70%;
     height: 100%;
     z-index: 1;
+    margin-top: 56px;
+}
+.left-content .heading h1{
+
+font-size: 3rem !important;
+/* font-weight: 700; */
+/* line-height: 73.66px; */
+text-align: left;
+
 }
 .left-content h1,h2,p{
    color: white;
@@ -102,14 +121,15 @@ margin: 0;
 .left-content h2{
     font-weight: 300;
     margin: 30px 0;
+    font-size: 2.5rem;
 }
 
 .right-content{
-    width: 40%;
-    height: 450px;
+    width: 30%;
+    height: 550px;
     z-index: 1;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     position: relative; 
     text-align: center;
 }
@@ -122,59 +142,73 @@ margin: 0;
     align-items: center;
     gap: 10px;
 }
+.desc p{
+  font-size: 20px;
+}
 .desc p img{
-    width: 131px;
-    height: 61px;
+    width: 170px;
+    height: 75px;
     margin-top: 10px;
     cursor: pointer;
 }
 .image-container {
-    position: relative; 
-    display: inline-block;
-    width: 100%;
-}
-#ellipse {
-    display: block; 
-    width: 80%;
-    height: auto; 
-position: absolute;
+  position: relative; 
+  width: 100%; /* Ensure the container spans the full width */
+  height: auto; /* Adjust height based on content */
+  display: flex; /* Use Flexbox to center content */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  overflow: hidden; /* Hide any overflow */
 }
 
+#ellipse {
+  display: block; 
+  width: 80%; /* Adjust width as needed */
+  height: auto; 
+  position: absolute;
+  top: 115px; /* Adjust positioning as needed */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for the offset */
+  z-index: -1; /* Ensure it is behind other content */
+}
 
 .mobile-image {
   display: none; /* Hide all images by default */
-  position: absolute;
-  top: 0;
-    left: 20%;
-    width: auto;
-    object-fit: contain;
+  position: absolute; 
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Perfectly center the image */
+  width: 100%; /* Cover full width */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensure images fit properly */
 }
 
 .mobile-image.active {
   display: block; /* Show only the active image */
 }
-.dots{
-  width: 100%;
-  display: flex;
-  padding: 20px 0 ;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-gap: 5px;
-}
-.dots p {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  background-color: #ccc;
-  border-radius: 50%;
-  margin: 0;
-  cursor: pointer;
+
+.dots {
+  position: absolute; /* Position dots absolutely within the container */
+  bottom: 0px; /* Adjust as needed to control position */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Perfectly center the dots */
+  z-index: 2; /* Higher than the overlay to bring it to the top */
+  display: flex; /* Display flex for dot arrangement */
+  gap: 10px; /* Adjust gap between dots */
 }
 
-.dots p.active {
-  width: 30px;
-  background-color: yellow;
+.dots .dot {
+  width: 12px; /* Adjust dot size */
+  height: 12px;
+  background-color: white; /* Dot color */
+  border-radius: 50%; /* Make dots circular */
+  cursor: pointer; /* Show cursor pointer on hover */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.dots .dot.active {
+  background: #FFD871;
+  width: 40px;
   border-radius: 20px;
 }
 

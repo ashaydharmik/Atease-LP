@@ -7,34 +7,52 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  document.addEventListener("DOMContentLoaded", function() {
-    const images = document.querySelectorAll(".mobile-image");
+  document.addEventListener("DOMContentLoaded", function () {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".mobile-image");
     const dotsContainer = document.querySelector(".dots");
-    let currentIndex = 0;
-  
+    
     // Create dots dynamically based on the number of images
-    images.forEach((_, index) => {
-      const dot = document.createElement("p");
+    slides.forEach((_, index) => {
+      const dot = document.createElement("span");
       dot.classList.add("dot");
-      if (index === 0) dot.classList.add("active"); // Make the first dot active
-      dot.addEventListener("click", () => showImage(index)); // Add click event to change the image
+      if (index === 0) dot.classList.add("active");
+      dot.addEventListener("click", () => showSlide(index));
       dotsContainer.appendChild(dot);
     });
   
-    const dots = document.querySelectorAll(".dots .dot");
+    const dots = document.querySelectorAll(".dot");
+    const totalSlides = slides.length;
   
-    function showImage(index) {
-      // Hide all images and remove 'active' class from dots
-      images.forEach((img) => img.classList.remove("active"));
+    // Show the first slide
+    showSlide(currentSlide);
+  
+    // Previous button event
+    document.getElementById("prev").addEventListener("click", function () {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      showSlide(currentSlide);
+    });
+  
+    // Next button event
+    document.getElementById("next").addEventListener("click", function () {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    });
+  
+    // Function to show a specific slide
+    function showSlide(index) {
+      slides.forEach((slide) => slide.classList.remove("active"));
       dots.forEach((dot) => dot.classList.remove("active"));
   
-      // Show the selected image and set the corresponding dot as active
-      images[index].classList.add("active");
+      slides[index].classList.add("active");
       dots[index].classList.add("active");
-  
-      currentIndex = index; // Update the current index
     }
   
-    // Initialize the first image as visible
-    showImage(currentIndex);
+    // Automatic slide every 3 seconds
+    setInterval(function () {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }, 3000); // Change slide every 3 seconds
   });
+  
+
