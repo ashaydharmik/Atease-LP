@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentSlide = 0;
     const slides = document.querySelectorAll(".mobile-image");
     const dotsContainer = document.querySelector(".dots");
-    
+  
     // Create dots dynamically based on the number of images
     slides.forEach((_, index) => {
       const dot = document.createElement("span");
@@ -27,18 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Show the first slide
     showSlide(currentSlide);
   
-    // Previous button event
-    document.getElementById("prev").addEventListener("click", function () {
-      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-      showSlide(currentSlide);
-    });
-  
-    // Next button event
-    document.getElementById("next").addEventListener("click", function () {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      showSlide(currentSlide);
-    });
-  
     // Function to show a specific slide
     function showSlide(index) {
       slides.forEach((slide) => slide.classList.remove("active"));
@@ -48,11 +36,31 @@ document.addEventListener("DOMContentLoaded", function () {
       dots[index].classList.add("active");
     }
   
-    // Automatic slide every 3 seconds
-    setInterval(function () {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      showSlide(currentSlide);
-    }, 3000); // Change slide every 3 seconds
+    // Add touch functionality
+    let startX = 0;
+    let endX = 0;
+  
+    document.querySelector(".image-container").addEventListener("touchstart", function (event) {
+      startX = event.touches[0].clientX;
+    });
+  
+    document.querySelector(".image-container").addEventListener("touchend", function (event) {
+      endX = event.changedTouches[0].clientX;
+      handleGesture();
+    });
+  
+    function handleGesture() {
+      if (endX < startX) {
+        // Swipe left
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+      } else if (endX > startX) {
+        // Swipe right
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        showSlide(currentSlide);
+      }
+    }
   });
+  
   
 
