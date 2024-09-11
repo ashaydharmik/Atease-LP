@@ -60,7 +60,14 @@ document.addEventListener("DOMContentLoaded", function () {
         showSlide(currentSlide);
       }
     }
+  
+    // Make slides move automatically
+    setInterval(function () {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }, 2000); // Adjust the 3000 value for speed (3000ms = 3 seconds)
   });
+  
   
   
 
