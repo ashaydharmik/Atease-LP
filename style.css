@@ -416,7 +416,7 @@ text-align: left;
     font-size: 2rem;
   }
   .about-right p{
-    font-size: 26px;
+    font-size: 29px;
     padding-right: 0px;
     font-weight: normal;
   }
@@ -425,7 +425,6 @@ text-align: left;
     position: relative; 
     width: 80%; 
     height: auto; 
-   
   }
   
   .bg-image {
@@ -514,7 +513,7 @@ text-align: left;
     margin-top: 50px;
 }
 .features-box .box-1,.box-2,.box-3{
-    width: 30%;
+    width: 28%;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -536,7 +535,7 @@ border-radius: 10px;
 }
 
 .boxes .headline h2{
-    font-size: 18px !important;
+    font-size: 20px !important;
     text-align: center;
     text-transform: capitalize !important;
     font-weight: bold;
@@ -548,10 +547,10 @@ border-radius: 10px;
 
 }
 .boxes .content p{
-    font-size: 16px !important;
+    font-size: 18px !important;
     text-align: center;
-    /* margin-top: 10px; */
 }
+
 .features-box .box-2{
     margin-top: 50px;
 }
@@ -571,7 +570,6 @@ border-radius: 10px;
     }
     .features-box .box-1,.box-2,.box-3{
         width: 80%;
-       
     }
 
   }
@@ -639,7 +637,8 @@ border-radius: 10px;
 
   .container .content p{
     text-align: justify;
-    font-size: 26px;
+    font-size: 23px;
+    padding-top: 15px;
   }
   
   @media (max-width: 583px) {
@@ -698,9 +697,9 @@ text-align: center;
   }
   .teams{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding: 40px 60px;
+    padding: 40px 80px;
   }
   .team-content{
     padding: 10px 0;
@@ -1032,7 +1031,7 @@ border-radius: 10px;
   .footer{
     width: 100%;
     padding: 50px 80px 20px 80px;
-    background-color: black;
+    background: #1A1300;
   }
   .footer-row{
     display: flex;
@@ -1161,7 +1160,8 @@ font-size: 20px;
     width: 100%;
     height: 100%;
     background-image: url(/assests/about-bg.png);
-    background-color: #3C2B16;
+    background: #1A1300;
+
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
