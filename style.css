@@ -523,6 +523,7 @@ text-align: left;
 }
 .boxes{
     width: 90%;
+    height: 300px;
     padding: 20px;
     margin: auto;
     display: flex;
@@ -537,7 +538,7 @@ border-radius: 10px;
 .boxes .headline h2{
     font-size: 22px !important;
     text-align: center;
-    text-transform: capitalize !important;
+    text-transform: uppercase !important;
     font-weight: bold;
 }
 .boxes .headline p{
@@ -558,6 +559,10 @@ border-radius: 10px;
 @media (max-width: 769px) {
     .boxes{
         width: 100%;
+        height: auto ;
+    }
+    .features-box {
+      gap: 20px;
     }
   }
 @media (max-width: 600px) {
@@ -857,6 +862,7 @@ border-radius: 10px;
     color: white;
     font-size: 2rem;
     font-weight: normal;
+    text-transform: uppercase;
   }
 
   .right-contact form{
